@@ -7,9 +7,19 @@
 namespace Finlet\flexmail\FlexmailAPI;
 
 use Finlet\flexmail\FlexmailAPI\FlexmailAPIInterface;
+use Finlet\flexmail\Config\Config;
 
 class FlexmailAPI implements FlexmailAPIInterface {
+
   private $soapClient = NULL;
+  protected $config = NULL;
+
+  /**
+   *
+   */
+  public function __construct(Config $config) {
+    $this->config = $config;
+  }
 
   /**
    * Get the request Service Instance
@@ -31,8 +41,8 @@ class FlexmailAPI implements FlexmailAPIInterface {
    *
    * @return stdClass The same stdClass without the header information
    */
-  public static function stripHeader($response) {
-    if (!DEBUG_MODE):
+  public static function stripHeader($response, $debug_mode = FALSE) {
+    if (!$debug_mode):
       $valuesToStrip = array("header", "errorCode", "errorMessage");
 
       foreach ($valuesToStrip as $value):
@@ -111,10 +121,10 @@ class FlexmailAPI implements FlexmailAPIInterface {
   private function createSoapClient() {
     // create a new SoapClient instance
     $this->soapClient = new SoapClient(
-      FLEXMAIL_WSDL,
+      $this->config->get('wsdl'),
       array(
-        "location" => FLEXMAIL_SERVICE,
-        "uri" => FLEXMAIL_SERVICE,
+        "location" => $this->config->get('service'),
+        "uri" => $this->config->get('service'),
         "trace" => 1,
       )
     );
@@ -129,8 +139,8 @@ class FlexmailAPI implements FlexmailAPIInterface {
     //check of module aanwezig is, geef waarschuwing indien niet.
     $header = new stdClass();
 
-    $header->userId = FLEXMAIL_USER_ID;
-    $header->userToken = FLEXMAIL_USER_TOKEN;
+    $header->userId = $this->config->get('user_id');
+    $header->userToken = $this->config->get('user_token');
 
     return $header;
   }

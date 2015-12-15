@@ -35,7 +35,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateCampaign", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -64,7 +64,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("UpdateCampaign", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -87,7 +87,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteCampaign", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -100,7 +100,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = NULL;
 
     $response = $this->execute("GetCampaigns", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -124,7 +124,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("GetCampaignSummary", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -146,7 +146,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("GetCampaignTrackingLinks", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -167,7 +167,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("GetTrackingLinkHits", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -196,7 +196,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
       "testCampaignType" => (object) $parameters
     );
     $response = $this->execute("SendTestCampaign", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -221,7 +221,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     endforeach;
 
     $response = $this->execute("SendCampaign", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -261,7 +261,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("GetCampaignHistory", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -288,7 +288,7 @@ class FlexmailAPI_Campaign extends FlexmailAPI implements FlexmailAPIServiceInte
 
 
     $response = $this->execute("GetCampaignReport", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 }

@@ -30,7 +30,7 @@ class FlexmailAPI_LandingPage extends FlexmailAPI implements FlexmailAPIServiceI
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateLandingPage", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -55,7 +55,7 @@ class FlexmailAPI_LandingPage extends FlexmailAPI implements FlexmailAPIServiceI
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("UpdateLandingPage", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -77,7 +77,7 @@ class FlexmailAPI_LandingPage extends FlexmailAPI implements FlexmailAPIServiceI
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteLandingPage", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -89,7 +89,7 @@ class FlexmailAPI_LandingPage extends FlexmailAPI implements FlexmailAPIServiceI
     $request = NULL;
 
     $response = $this->execute("GetLandingPages", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 }

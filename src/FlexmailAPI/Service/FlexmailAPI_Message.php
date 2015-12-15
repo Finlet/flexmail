@@ -32,7 +32,7 @@ class FlexmailAPI_Message extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateMessage", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -58,7 +58,7 @@ class FlexmailAPI_Message extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("UpdateMessage", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -81,7 +81,7 @@ class FlexmailAPI_Message extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteMessage", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -102,7 +102,7 @@ class FlexmailAPI_Message extends FlexmailAPI implements FlexmailAPIServiceInter
 
     $response = $this->execute("GetMessages", $request);
 
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
 

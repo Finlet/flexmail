@@ -30,7 +30,7 @@ class FlexmailAPI_Group extends FlexmailAPI implements FlexmailAPIServiceInterfa
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateGroup", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -54,7 +54,7 @@ class FlexmailAPI_Group extends FlexmailAPI implements FlexmailAPIServiceInterfa
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("UpdateGroup", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -78,7 +78,7 @@ class FlexmailAPI_Group extends FlexmailAPI implements FlexmailAPIServiceInterfa
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteGroup", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -90,7 +90,7 @@ class FlexmailAPI_Group extends FlexmailAPI implements FlexmailAPIServiceInterfa
   public function getAll() {
     $request = NULL;
     $response = $this->execute("GetGroups", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -115,7 +115,7 @@ class FlexmailAPI_Group extends FlexmailAPI implements FlexmailAPIServiceInterfa
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateGroupSubscription", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -139,7 +139,7 @@ class FlexmailAPI_Group extends FlexmailAPI implements FlexmailAPIServiceInterfa
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteGroupSubscription", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 }

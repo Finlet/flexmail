@@ -24,7 +24,7 @@ class FlexmailAPI_Form extends Flexmail_API implements FlexmailAPIServiceInterfa
     $request = NULL;
 
     $response = $this->execute("GetForms", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -52,7 +52,7 @@ class FlexmailAPI_Form extends Flexmail_API implements FlexmailAPIServiceInterfa
 
     $response = $this->execute("GetFormResults", $request);
 
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
 

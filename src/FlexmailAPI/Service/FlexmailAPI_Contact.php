@@ -61,7 +61,7 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $test = $this->execute("CreateEmailAddress", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -117,7 +117,7 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("UpdateEmailAddress", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -141,7 +141,7 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteEmailAddress", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -204,7 +204,7 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
 
 
     $response = $this->execute("GetEmailAddresses", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -276,7 +276,7 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
     endforeach;
 
     $response = $this->execute("ImportEmailAddresses", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -328,7 +328,7 @@ class FlexmailAPI_Contact extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = FlexmailAPI_Email::parseArray($parameters);
 
     $response = $this->execute("GetEmailAddressHistory", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
 }

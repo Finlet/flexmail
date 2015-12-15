@@ -31,7 +31,7 @@ class FlexmailAPI_Template extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateTemplate", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -58,7 +58,7 @@ class FlexmailAPI_Template extends FlexmailAPI implements FlexmailAPIServiceInte
 
     $response = $this->execute("UpdateTemplate", $request);
 
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -82,7 +82,7 @@ class FlexmailAPI_Template extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteTemplate", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -94,7 +94,7 @@ class FlexmailAPI_Template extends FlexmailAPI implements FlexmailAPIServiceInte
   public function getAll() {
     $request = NULL;
     $response = $this->execute("GetTemplates", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
 

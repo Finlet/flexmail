@@ -34,7 +34,7 @@ class FlexmailAPI_Account extends FlexmailAPI implements FlexmailAPIServiceInter
     endforeach;
 
     $response = $this->execute("GetBounces", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -60,7 +60,7 @@ class FlexmailAPI_Account extends FlexmailAPI implements FlexmailAPIServiceInter
     endforeach;
 
     $response = $this->execute("GetSubscriptions", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -95,7 +95,7 @@ class FlexmailAPI_Account extends FlexmailAPI implements FlexmailAPIServiceInter
     endforeach;
 
     $response = $this->execute("GetUnsubscriptions", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -130,7 +130,7 @@ class FlexmailAPI_Account extends FlexmailAPI implements FlexmailAPIServiceInter
     endforeach;
 
     $response = $this->execute("GetProfileUpdates", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -142,7 +142,7 @@ class FlexmailAPI_Account extends FlexmailAPI implements FlexmailAPIServiceInter
     $request = NULL;
 
     $response = $this->execute("GetBalance", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
 }

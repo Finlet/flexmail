@@ -42,7 +42,7 @@ class FlexmailAPI_Blacklist extends FlexmailAPI implements FlexmailAPIServiceInt
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("ImportBlacklist", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
 

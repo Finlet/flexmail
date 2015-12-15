@@ -46,7 +46,7 @@ class FlexmailAPI_File extends FlexmailAPI implements FlexmailAPIServiceInterfac
 
     $response = $this->execute("PutFiles", $parameters);
 
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
 

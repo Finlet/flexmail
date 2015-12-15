@@ -27,7 +27,7 @@ class FlexmailAPI_Category extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateCategory", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -48,7 +48,7 @@ class FlexmailAPI_Category extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("UpdateCategory", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -68,7 +68,7 @@ class FlexmailAPI_Category extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteCategory", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -81,7 +81,7 @@ class FlexmailAPI_Category extends FlexmailAPI implements FlexmailAPIServiceInte
     $request = NULL;
 
     $response = $this->execute("GetCategories", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
 

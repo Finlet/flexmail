@@ -32,7 +32,7 @@ class FlexmailAPI_List extends FlexmailAPI implements FlexmailAPIServiceInterfac
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("CreateMailingList", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -56,7 +56,7 @@ class FlexmailAPI_List extends FlexmailAPI implements FlexmailAPIServiceInterfac
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("UpdateMailingList", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
 
   }
 
@@ -78,7 +78,7 @@ class FlexmailAPI_List extends FlexmailAPI implements FlexmailAPIServiceInterfac
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("DeleteMailingList", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 
   /**
@@ -92,7 +92,7 @@ class FlexmailAPI_List extends FlexmailAPI implements FlexmailAPIServiceInterfac
     $request = FlexmailAPI::parseArray($parameters);
 
     $response = $this->execute("GetMailingLists", $request);
-    return FlexmailAPI::stripHeader($response);
+    return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
   }
 }
 
