@@ -1,26 +1,14 @@
 <?php
 
-// load config file
-require_once "config.php";
+/**
+ * @todo Write file documentation.
+ */
 
-// load required classes
-require_once "FlexmailAPI_Account.php";
-require_once "FlexmailAPI_Blacklist.php";
-require_once "FlexmailAPI_Campaign.php";
-require_once "FlexmailAPI_Category.php";
-require_once "FlexmailAPI_Contact.php";
-require_once "FlexmailAPI_File.php";
-require_once "FlexmailAPI_Group.php";
-require_once "FlexmailAPI_LandingPage.php";
-require_once "FlexmailAPI_List.php";
-require_once "FlexmailAPI_Message.php";
-require_once "FlexmailAPI_Template.php";
-require_once "FlexmailAPI_Template.php";
-require_once "FlexmailAPI_Template.php";
+namespace Finlet\flexmail\FlexmailAPI;
 
+use Finlet\flexmail\FlexmailAPI\FlexmailAPIInterface;
 
-class FlexmailAPI
-{
+class FlexmailAPI implements FlexmailAPIInterface {
     private $soapClient = NULL;
 
     /**
@@ -32,7 +20,7 @@ class FlexmailAPI
      */
     public static function service ($service)
     {   
-        $classname = "FlexmailAPI_{$service}";
+        $classname = "\Finlet\flexmail\FlexmailAPI\Service\FlexmailAPI_{$service}";
                
         return new $classname();
     }
@@ -151,5 +139,6 @@ class FlexmailAPI
         
         return $header;
     }
-    
 }
+
+?>

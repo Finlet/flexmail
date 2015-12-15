@@ -1,4 +1,7 @@
-Flexmail API PHP Wrapper                                            version: 1.4
+Flexmail API PHP Wrapper                                            version: 2.0
+
+15/12/2015: - Changed file structure
+            - Initialized Composer package
 
 29/05/2015: - Fixed issue in Deprecated service FlexmailAPI_Email
             - Fixed incorrect date in changelog

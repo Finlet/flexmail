@@ -1,7 +1,15 @@
 <?php
 
-class FlexmailAPI_Form extends Flexmail_API
-{
+/**
+ * @todo Write file documentation.
+ */
+
+namespace Finlet\flexmail\FlexmailAPI\Service;
+
+use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
+use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
+
+class FlexmailAPI_Form extends Flexmail_API implements FlexmailAPIServiceInterface {
     /**
      * Return list of all forms in a Flexmail account
      * 

@@ -1,6 +1,15 @@
 <?php
-class FlexmailAPI_Account extends FlexmailAPI
-{    
+
+/**
+ * @todo Write file documentation.
+ */
+
+namespace Finlet\flexmail\FlexmailAPI\Service;
+
+use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
+use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
+
+class FlexmailAPI_Account extends FlexmailAPI implements FlexmailAPIServiceInterface {
     /**
      * Recall all bounced email addresses, either by campaign or by mailing list
      * 
@@ -140,3 +149,5 @@ class FlexmailAPI_Account extends FlexmailAPI
      }
    
 }
+
+?>

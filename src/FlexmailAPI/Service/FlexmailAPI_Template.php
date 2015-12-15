@@ -1,7 +1,15 @@
 <?php
 
-class FlexmailAPI_Template extends FlexmailAPI
-{    
+/**
+ * @todo Write file documentation.
+ */
+
+namespace Finlet\flexmail\FlexmailAPI\Service;
+
+use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
+use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
+
+class FlexmailAPI_Template extends FlexmailAPI implements FlexmailAPIServiceInterface {
     /**
      * Create a new Template
      * 

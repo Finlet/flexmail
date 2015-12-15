@@ -1,7 +1,15 @@
 <?php
 
-class FlexmailAPI_Blacklist extends FlexmailAPI
-{    
+/**
+ * @todo Write file documentation.
+ */
+
+namespace Finlet\flexmail\FlexmailAPI\Service;
+
+use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
+use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
+
+class FlexmailAPI_Blacklist extends FlexmailAPI implements FlexmailAPIServiceInterface {
     /**
      * Import multiple email adresses to the overall or a specific mailing list blacklist
      * 

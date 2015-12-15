@@ -1,7 +1,15 @@
 <?php
 
-class FlexmailAPI_Category extends FlexmailAPI
-{    
+/**
+ * @todo Write file documentation.
+ */
+
+namespace Finlet\flexmail\FlexmailAPI\Service;
+
+use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
+use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
+
+class FlexmailAPI_Category extends FlexmailAPI implements FlexmailAPIServiceInterface {
     /**
      * Create a new Category
      *
@@ -80,3 +88,5 @@ class FlexmailAPI_Category extends FlexmailAPI
         return FlexmailAPI::stripHeader($response);
     }
 }
+
+?>

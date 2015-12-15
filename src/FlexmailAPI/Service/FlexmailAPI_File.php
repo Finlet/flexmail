@@ -1,6 +1,15 @@
 <?php
-class FlexmailAPI_File extends FlexmailAPI
-{
+
+/**
+ * @todo Write file documentation.
+ */
+
+namespace Finlet\flexmail\FlexmailAPI\Service;
+
+use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
+use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
+
+class FlexmailAPI_File extends FlexmailAPI implements FlexmailAPIServiceInterface {
     /**
      * Send images and/or documents to your Flexmail account
      * 

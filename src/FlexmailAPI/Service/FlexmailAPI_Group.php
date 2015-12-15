@@ -1,7 +1,15 @@
 <?php
 
-class FlexmailAPI_Group extends FlexmailAPI
-{
+/**
+ * @todo Write file documentation.
+ */
+
+namespace Finlet\flexmail\FlexmailAPI\Service;
+
+use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
+use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
+
+class FlexmailAPI_Group extends FlexmailAPI implements FlexmailAPIServiceInterface {
     /**
      * Create a new Group
      * 
