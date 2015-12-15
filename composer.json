@@ -1,0 +1,19 @@
+{
+    "name": "Finlet/flexmail",
+    "description": "Flexmail API PHP Wrapper.",
+    "type": "library",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Rico van de Vin",
+            "email": "rico@finlet.eu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Finlet\\flexmail\\": "src/"
+        }
+    }
+}
