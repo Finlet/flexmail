@@ -1,0 +1,15 @@
+Flexmail API PHP Wrapper                                            version: 1.4
+
+29/05/2015: - Fixed issue in Deprecated service FlexmailAPI_Email
+            - Fixed incorrect date in changelog
+
+29/01/2015: - Fixed support for Database Manager module:
+                Contact->create 
+                Contact->update
+
+29/10/2014: - Fixed incorrect array to object case
+                Campaign->create
+
+26/12/2012: - Deprecated serivce FlexmailAPI_Email
+                (still supported for backward compatibility reasons)
+            - Fixed error in readme example code
