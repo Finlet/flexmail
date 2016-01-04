@@ -7,7 +7,7 @@
 namespace Finlet\flexmail\FlexmailAPI;
 
 use Finlet\flexmail\FlexmailAPI\FlexmailAPIInterface;
-use Finlet\flexmail\Config\Config;
+use Finlet\flexmail\Config\ConfigInterface;
 
 class FlexmailAPI implements FlexmailAPIInterface {
 
@@ -17,7 +17,7 @@ class FlexmailAPI implements FlexmailAPIInterface {
   /**
    *
    */
-  public function __construct(Config $config) {
+  public function __construct(ConfigInterface $config) {
     $this->config = $config;
   }
 
@@ -28,10 +28,10 @@ class FlexmailAPI implements FlexmailAPIInterface {
    *
    * @return Object An instance of the requested service
    */
-  public static function service($service) {
-    $classname = "\Finlet\flexmail\FlexmailAPI\Service\FlexmailAPI_{$service}";
+  public function service($service) {
+    $classname = "\Finlet\\flexmail\FlexmailAPI\Service\FlexmailAPI_{$service}";
 
-    return new $classname();
+    return new $classname($this->config);
   }
 
   /**
@@ -106,7 +106,7 @@ class FlexmailAPI implements FlexmailAPIInterface {
 
     // check if we have get an error code, in which case we throw an exeception
     if ($response->errorCode != 0 || $response->errorCode === ""):
-      throw new Exception($response->errorMessage, $response->errorCode);
+      throw new \Exception($response->errorMessage, $response->errorCode);
     endif;
 
     // return the response
@@ -120,7 +120,7 @@ class FlexmailAPI implements FlexmailAPIInterface {
    */
   private function createSoapClient() {
     // create a new SoapClient instance
-    $this->soapClient = new SoapClient(
+    $this->soapClient = new \SoapClient(
       $this->config->get('wsdl'),
       array(
         "location" => $this->config->get('service'),
@@ -137,7 +137,7 @@ class FlexmailAPI implements FlexmailAPIInterface {
    */
   private function getRequestHeader() {
     //check of module aanwezig is, geef waarschuwing indien niet.
-    $header = new stdClass();
+    $header = new \stdClass();
 
     $header->userId = $this->config->get('user_id');
     $header->userToken = $this->config->get('user_token');

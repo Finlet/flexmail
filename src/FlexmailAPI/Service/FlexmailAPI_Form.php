@@ -9,7 +9,7 @@ namespace Finlet\flexmail\FlexmailAPI\Service;
 use Finlet\flexmail\FlexmailAPI\FlexmailAPI;
 use Finlet\flexmail\FlexmailAPI\Service\FlexmailAPIServiceInterface;
 
-class FlexmailAPI_Form extends Flexmail_API implements FlexmailAPIServiceInterface {
+class FlexmailAPI_Form extends FlexmailAPI implements FlexmailAPIServiceInterface {
   /**
    * Return list of all forms in a Flexmail account
    *
