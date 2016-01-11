@@ -63,7 +63,7 @@ class FlexmailAPI implements FlexmailAPIInterface {
    *
    * @return stdClass The converted array
    */
-  protected function parseArray(array $arr, stdClass $parent = NULL) {
+  protected function parseArray(array $arr, \stdClass $parent = NULL) {
     if ($parent === NULL):
       $parent = $this;
     endif;
