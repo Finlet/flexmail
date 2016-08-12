@@ -101,7 +101,11 @@ class FlexmailAPI_Message extends FlexmailAPI implements FlexmailAPIServiceInter
   * @return messageTypeItems array
   */
   public function getAll($parameters = NULL) {
-    $request = FlexmailAPI::parseArray($parameters);
+    $request = NULL;
+
+    if (is_array($parameters)) {
+      $request = FlexmailAPI::parseArray($parameters);
+    }
 
     $response = $this->execute("GetMessages", $request);
     return FlexmailAPI::stripHeader($response, $this->config->get('debug_mode'));
